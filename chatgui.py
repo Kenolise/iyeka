@@ -79,19 +79,19 @@ def send():
         ChatLog.config(foreground="#442265", font=("Verdana", 12 ))
     
         res = chatbot_response(msg)
-        ChatLog.insert(END, "Bot: " + res + '\n\n')
+        ChatLog.insert(END, "Iyeka: " + res + '\n\n')
             
         ChatLog.config(state=DISABLED)
         ChatLog.yview(END)
  
 
 base = Tk()
-base.title("Hello")
+base.title("Iyeka Bot")
 base.geometry("400x500")
 base.resizable(width=FALSE, height=FALSE)
 
 #Create Chat window
-ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial",)
+ChatLog = Text(base, bd=0, bg="white", height="8", width="60", font="Arial",)
 
 ChatLog.config(state=DISABLED)
 
@@ -100,19 +100,18 @@ scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="heart")
 ChatLog['yscrollcommand'] = scrollbar.set
 
 #Create Button to send message
-SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="12", height=5,
-                    bd=0, bg="#32de97", activebackground="#3c9d9b",fg='#ffffff',
+SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="12", height=3,
+                    bd=0, bg="#00cc66", activebackground="#00cc00",fg='#ffffff',
                     command= send )
 
 #Create the box to enter message
-EntryBox = Text(base, bd=0, bg="white",width="29", height="5", font="Arial")
+EntryBox = Text(base, bd=0, bg="white",width="20", height="2", font="Arial")
 #EntryBox.bind("<Return>", send)
 
 
 #Place all components on the screen
 scrollbar.place(x=376,y=6, height=386)
 ChatLog.place(x=6,y=6, height=386, width=370)
-EntryBox.place(x=128, y=401, height=90, width=265)
-SendButton.place(x=6, y=401, height=90)
-
+EntryBox.place(x=128, y=401, height=50, width=265)
+SendButton.place(x=6, y=401, height=50)
 base.mainloop()
